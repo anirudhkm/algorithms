@@ -15,4 +15,3 @@ def selection_sort(lst):
         lst[pos] = lst[i]
         lst[i] = temp
     return lst
-
