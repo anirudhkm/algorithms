@@ -16,7 +16,6 @@ def selection_sort(lst):
         lst[i] = temp
     return lst
 
-
 def insertion_sort(lst):
     """
     Perform insertion sort.
@@ -43,3 +42,21 @@ def bubble_sort(lst):
                 lst[j] = lst[j+1]
                 lst[j+1] = temp
     return lst
+
+def shell_sort(lst):
+    """
+    Shell sorting of list.
+    """
+    n = len(lst)
+    gap = n//2
+    while gap > 0:
+        for i in range(gap, n):
+            j = i - gap
+            gval = lst[i]
+            while j >=0 and lst[j] > gval:
+                lst[j+gap] = lst[j]
+                j = j-gap
+            lst[j+gap] = gval
+        gap = gap//2
+    return lst
+
