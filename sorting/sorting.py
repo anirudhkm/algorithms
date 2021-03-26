@@ -60,3 +60,41 @@ def shell_sort(lst):
         gap = gap//2
     return lst
 
+
+def merge(lst, l, m, r):
+    """
+    Perform merging on the list.
+    """
+    
+    temp = [0]*len(lst)
+    i, j, k = l, m+1, l
+    while i <= m and j <= r:
+        if lst[i] <= lst[j]:
+            temp[k] = lst[i]
+            i+=1
+        else:
+            temp[k] = lst[j]
+            j+=1
+        k+=1
+    while i <= m:
+        temp[k] = lst[i]
+        k+=1
+        i+=1
+    while j <= r:
+        temp[k] = lst[j]
+        k+=1
+        j+=1
+    for i in range(l, r):
+        lst[i] = temp[i]
+
+
+def merge_sort(lst, l, r):
+    """
+    Merge sort implementation.
+    """
+    
+    if l < r:
+        m = (l+r)//2
+        merge_sort(lst, l, m)
+        merge_sort(lst, m+1, r)
+        lst = merge(lst, l, m, r)
