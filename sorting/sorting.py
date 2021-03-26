@@ -84,9 +84,8 @@ def merge(lst, l, m, r):
         temp[k] = lst[j]
         k+=1
         j+=1
-    for i in range(l, r):
+    for i in range(l, r+1):
         lst[i] = temp[i]
-
 
 def merge_sort(lst, l, r):
     """
@@ -97,4 +96,4 @@ def merge_sort(lst, l, r):
         m = (l+r)//2
         merge_sort(lst, l, m)
         merge_sort(lst, m+1, r)
-        lst = merge(lst, l, m, r)
+        merge(lst, l, m, r)
